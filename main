@@ -1,0 +1,38 @@
+#include <iostream>
+#include "punto.h"
+#include "malla.h"
+#include "superficie.h"
+
+using namespace std;
+
+int main()
+{
+    punto a(0,0,0);
+    punto b(5,0,0);
+    punto c(0,5,0);
+
+    superficie s1(a,b,c);
+
+    punto d(1,0,4);
+    punto e(5,0,4);
+    punto f(4,4,2);
+    superficie s2(d,e,f);
+
+    malla m;
+
+    m.agregar(s1);
+    m.agregar(s2);
+
+    cout << "area s1: " << s1.area() << endl;
+    cout << "area s2: "<< s2.area() << endl;
+    cout << "area total: " << m.areaTotal() << endl;
+
+    double valor;
+    cout << "ingrese valor de mallas a buscar: "<< endl;
+    cin >> valor;
+
+    cout << "valores mayores de mallas buscadas: "
+           << m.cantidadMayor(valor) << endl;
+
+    return 0;
+}
